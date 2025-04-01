@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <title>Barra Lateral Colapsable</title>
+    {% load static %}
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <div class="flex">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="bg-blue-600 text-white h-screen w-64 transition-all duration-300 overflow-hidden"
+      >
+        <div class="flex items-center justify-between px-4 py-4">
+          <h1 id="sidebarTitle" class="text-2xl font-bold">Panel</h1>
+          <button
+            id="collapseButton"
+            class="text-white focus:outline-none"
+            role="button"
+            aria-label="Toggle sidebar"
+          >
+            <svg
+              id="collapseIcon"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <!-- Agregamos un id al elemento 'path' para manipularlo -->
+              <path
+                id="collapseIconPath"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 12H5m7-7l-7 7 7 7"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <nav class="mt-4">
+          <ul>
+            <!-- Menú existente -->
+            <li class="px-4 py-2 hover:bg-blue-700 flex items-center">
+              <a href="{% url 'home' %}" class="flex items-center w-full text-white">
+              <span class="material-icons-outlined">store</span>
+              <span class="menu-label ml-4">Go To Gym</span>
+              </a>
+            </li>
+            <!-- Agregamos los demás elementos del menú -->
+            <li class="px-4 py-2 hover:bg-blue-700 flex items-center">
+              <a href="{% url 'actualizar' %}" class="flex items-center w-full text-white">
+              <span class="material-icons-outlined">person</span>
+              <span class="menu-label ml-4">Editar Perfil</span>
+              </a>
+            </li>
+            <li class="px-4 py-2 hover:bg-blue-700 flex items-center">
+              <span class="material-icons-outlined">settings</span>
+              <span class="menu-label ml-4">Configuración Marca</span>
+            </li>
+            <li class="px-4 py-2 hover:bg-blue-700 flex items-center">
+              <a href="{% url 'group_chart' %}" class="flex items-center w-full text-white">
+              <span class="material-icons-outlined">timeline</span>
+              <span class="menu-label ml-4">Línea Tendencia</span>
+              </a>
+            </li>
+            <li class="px-4 py-2 hover:bg-blue-700 flex items-center">
+              <a href="{% url 'nps_chart' %}" class="flex items-center w-full text-white">
+              <span class="material-icons-outlined">thumbs_up_down</span>
+              <span class="menu-label ml-4">Net Promoter Score</span>
+              </a>
+            </li>
+            <li class="px-4 py-2 hover:bg-blue-700 flex items-center">
+              <a href="{% url 'crear_usuario' %}" class="flex items-center w-full text-white">
+                <span class="material-icons-outlined">admin_panel_settings</span>
+                <span class="menu-label ml-4">Crear Super Admin</span>
+              </a>
+            </li>
+            <li class="px-4 py-2 hover:bg-blue-700 flex items-center">
+              <span class="material-icons-outlined">bar_chart</span>
+              <span class="menu-label ml-4">Consolidados</span>
+            </li>
+            <li class="px-4 py-2 hover:bg-blue-700 flex items-center">
+              <span class="material-icons-outlined">search</span>
+              <span class="menu-label ml-4">Buscador</span>
+            </li>
+            <li class="px-4 py-2 hover:bg-blue-700 flex items-center">
+              <span class="material-icons-outlined">edit</span>
+              <span class="menu-label ml-4">Editar Páginas Web</span>
+            </li>
+            <li class="px-4 py-2 hover:bg-blue-700 flex items-center">
+              <span class="material-icons-outlined">logout</span>
+              <form action="{%url "logout"%}"method="post">
+                {% csrf_token %}
+                <button class="menu-label ml-4" type="submit">Logout</button>
+              </form>
+            </li>
+
+          
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Content -->
+      <div class="w-full h-screen flex flex-col items-center justify-center bg-gray-100">
+        
+        <main class="w-full h-screen flex flex-col items-center justify-center bg-gray-100">
+          {% block content %}
+          {% endblock content %}
+        </main>
+      </div>
+    </div>
+
+    <!-- Enlazamos el archivo JavaScript externo -->
+
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Línea</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Gráfico de Actividad Física</h1>
+    <canvas id="myLineChart" width="400" height="200"></canvas>
+
+    <script>
+        // Carga los datos desde Django
+        const labels = JSON.parse('{{ labels|safe }}');
+        const ventas = JSON.parse('{{ ventas|safe }}');
+        const gastos = JSON.parse('{{ gastos|safe }}');
+
+        // Verifica si los datos son correctos
+        console.log('Labels:', labels);
+        console.log('Ventas:', ventas);
+        console.log('Gastos:', gastos);
+
+        // Configuración del gráfico
+        var ctx = document.getElementById('myLineChart').getContext('2d');
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Pasos Totales',
+                        data: ventas,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Tiempo Activo (Horas)',
+                        data: gastos,
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
