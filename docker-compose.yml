@@ -1,0 +1,22 @@
+services:
+  users:
+    build:
+      context: .
+      dockerfile: Dockerfile.users
+    ports:
+      - "8001:8000"
+
+  products:
+    build:
+      context: .
+      dockerfile: Dockerfile.products
+    ports:
+      - "8002:8000"
+
+  gateway:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+

@@ -1,0 +1,18 @@
+# Python
+*.pyc
+__pycache__/
+
+# Base de datos
+db.sqlite3
+
+# Entornos virtuales
+env/
+venv/
+venv_gotogym/
+
+# Archivos de configuración del sistema (Mac)
+.DS_Store
+
+# Otros archivos temporales
+dump.rdb
+

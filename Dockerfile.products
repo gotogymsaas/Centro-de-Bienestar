@@ -1,0 +1,18 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Copiar el archivo de requerimientos
+COPY requirements.txt .
+
+# Instalar dependencias
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# Copiar TODO el proyecto (incluyendo manage.py y todos los directorios)
+COPY . /app/
+
+EXPOSE 8000
+
+# Arrancar el servidor de Django desde la raíz del proyecto
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+

@@ -1,0 +1,28 @@
+{
+  "name": "project_gotogym",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fontsource/outfit": "^5.2.5",
+    "@fontsource/playfair-display": "^5.2.5",
+    "@heroicons/react": "^2.2.0",
+    "aos": "^2.3.4",
+    "gsap": "^3.12.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17"
+  }
+}

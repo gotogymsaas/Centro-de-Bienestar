@@ -1,0 +1,112 @@
+/* Fuente principal */
+body {
+  font-family: 'TTnorms-Regular', sans-serif;
+  background-color: #F8F9FA; /* Blanco Premium */
+  color: #20415B; /* Azul marino / Azul Zafiro */
+}
+
+/* HEADER / BARRA SUPERIOR */
+#header {
+  background-color: #20415B; /* Azul Zafiro */
+  color: #FFFFFF;
+}
+
+#branding h1, #branding h1 a {
+  color: #FFFFFF !important;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+/* LINKS */
+a {
+  color: #D4B46A; /* Dorado Fitness */
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #B38E45; /* Dorado más oscuro */
+}
+
+/* SIDEBAR */
+#nav-sidebar {
+  background-color: #101012; /* Negro Grafito */
+}
+
+#nav-sidebar .module caption {
+  background-color: #17375C; /* Azul Zafiro */
+  color: #F8F9FA;
+  font-weight: bold;
+  border-bottom: 2px solid #1A9B76; /* Verde Esmeralda */
+}
+
+#nav-sidebar li a {
+  color: #E0E3E6; /* Plata Premium */
+}
+
+#nav-sidebar li a:hover {
+  background-color: #1A9B76; /* Verde Esmeralda */
+  color: white;
+  border-radius: 4px;
+  padding-left: 10px;
+}
+
+/* FORMULARIOS Y CAMPOS */
+fieldset {
+  border: 1px solid #E0E3E6;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+}
+
+.module h2, .module caption {
+  color: #17375C;
+  border-bottom: 1px solid #D4B46A;
+}
+
+/* BOTONES */
+.button, .button.default, input[type="submit"], input[type="button"] {
+  background-color: #D4B46A;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover, input[type="submit"]:hover {
+  background-color: #B38E45;
+  cursor: pointer;
+}
+
+/* TABLAS Y LISTADOS */
+table {
+  background-color: #ffffff;
+  border: 1px solid #E0E3E6;
+}
+
+table th {
+  background-color: #F0F0F0;
+  color: #20415B;
+  font-weight: bold;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  #site-name span {
+    font-size: 18px;
+  }
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #nav-sidebar {
+    font-size: 14px;
+  }
+
+  .module {
+    padding: 10px;
+  }
+}
+

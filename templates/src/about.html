@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Quiénes Somos - GoToGym{% endblock %}
+{% block content %}
+<!-- Hero Section con Imagen de Fondo -->
+<section class="relative bg-cover bg-center h-screen" style="background-image: url('{% static 'images/hero-bg.jpg' %}');">
+  <!-- Capa oscura para realzar el texto -->
+  <div class="absolute inset-0 bg-black opacity-60"></div>
+  <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+    <h1 class="text-6xl font-extrabold text-dorado drop-shadow-xl">
+      Lujo Deportivo e Innovación en Movimiento
+    </h1>
+    <p class="mt-6 text-2xl font-light text-esmeralda drop-shadow-lg">
+      Donde la tecnología se fusiona con el bienestar.
+    </p>
+    <a href="{% url 'list_product' %}" class="mt-10 btn-primary px-8 py-4 rounded-full transition-transform transform hover:scale-105">
+      Descubre Nuestra Colección
+    </a>
+  </div>
+</section>
+
+<!-- Sección: Quiénes Somos -->
+<section id="quienes-somos" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-dorado mb-8">Quiénes Somos</h2>
+    <div class="flex flex-col md:flex-row items-center">
+      <!-- Imagen representativa -->
+      <div class="md:w-1/2">
+        <img src="{% static 'images/about_us.jpg' %}" alt="Imagen representativa de GoToGym" class="rounded shadow-lg">
+      </div>
+      <!-- Texto de presentación -->
+      <div class="md:w-1/2 md:pl-10 mt-8 md:mt-0">
+        <p class="text-xl text-esmeralda leading-relaxed">
+          En GoToGym transformamos la experiencia del fitness combinando la elegancia de la sastrería premium con la más avanzada tecnología. Somos mucho más que ropa deportiva; somos un sistema vivo que se adapta a ti.
+        </p>
+        <p class="mt-4 text-lg text-esmeralda leading-relaxed">
+          Nuestro ADN se fundamenta en un profundo compromiso con el bienestar, la sostenibilidad y la ética. Utilizamos materiales avanzados, como el grafeno, para crear prendas inteligentes que cuidan tu salud, potencian tu rendimiento y respetan el planeta.
+        </p>
+        <p class="mt-4 text-lg text-esmeralda leading-relaxed">
+          Con una visión humanista y disruptiva, reinventamos la moda deportiva, ofreciendo un servicio integral que te acompaña 24/7. En GoToGym, cada prenda es una extensión de tu cuerpo y mente, diseñada para inspirar y transformar vidas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Valores Fundamentales -->
+<section class="py-16 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-dorado mb-12">Nuestros Valores</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Exclusividad -->
+      <div class="bg-plata p-8 rounded-lg shadow-xl transition-transform transform hover:scale-105">
+        <div class="flex items-center justify-center mb-5">
+          <img src="{% static 'images/icon_exclusividad.svg' %}" alt="Exclusividad" class="h-14 w-14">
+        </div>
+        <h3 class="text-2xl font-semibold text-dorado text-center">Exclusividad</h3>
+        <p class="mt-3 text-esmeralda text-center">
+          Prendas únicas para un público selecto y exigente.
+        </p>
+      </div>
+      <!-- Tecnología -->
+      <div class="bg-plata p-8 rounded-lg shadow-xl transition-transform transform hover:scale-105">
+        <div class="flex items-center justify-center mb-5">
+          <img src="{% static 'images/icon_tecnologia.svg' %}" alt="Tecnología" class="h-14 w-14">
+        </div>
+        <h3 class="text-2xl font-semibold text-dorado text-center">Tecnología</h3>
+        <p class="mt-3 text-esmeralda text-center">
+          Innovación en cada fibra: nanotecnología y sensores integrados.
+        </p>
+      </div>
+      <!-- Bienestar -->
+      <div class="bg-plata p-8 rounded-lg shadow-xl transition-transform transform hover:scale-105">
+        <div class="flex items-center justify-center mb-5">
+          <img src="{% static 'images/icon_bienestar.svg' %}" alt="Bienestar" class="h-14 w-14">
+        </div>
+        <h3 class="text-2xl font-semibold text-dorado text-center">Bienestar</h3>
+        <p class="mt-3 text-esmeralda text-center">
+          Experiencias personalizadas para cuidar tu salud y rendimiento.
+        </p>
+      </div>
+      <!-- Sostenibilidad -->
+      <div class="bg-plata p-8 rounded-lg shadow-xl transition-transform transform hover:scale-105">
+        <div class="flex items-center justify-center mb-5">
+          <img src="{% static 'images/icon_sostenibilidad.svg' %}" alt="Sostenibilidad" class="h-14 w-14">
+        </div>
+        <h3 class="text-2xl font-semibold text-dorado text-center">Sostenibilidad</h3>
+        <p class="mt-3 text-esmeralda text-center">
+          Compromiso ecológico a través de materiales y procesos responsables.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer (incluye redes y enlaces informativos) -->
+<footer class="bg-grafito py-8">
+  <div class="container mx-auto text-center">
+    <div class="flex flex-col items-center">
+      <!-- Redes Sociales -->
+      <div class="flex flex-wrap justify-center gap-4 mb-6">
+        <a href="https://www.facebook.com/Gotogym.Sportwear" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <img src="{% static 'images/icon_facebook.svg' %}" alt="Facebook" class="h-6 w-6">
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61557569360530" target="_blank" rel="noopener noreferrer" aria-label="Facebook Brasil">
+          <img src="{% static 'images/icon_facebook.svg' %}" alt="Facebook Brasil" class="h-6 w-6">
+        </a>
+        <a href="https://twitter.com/GOTOGYM6" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+          <img src="{% static 'images/icon_twitter.svg' %}" alt="Twitter" class="h-6 w-6">
+        </a>
+        <a href="https://www.linkedin.com/company/33262154/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <img src="{% static 'images/icon_linkedin.svg' %}" alt="LinkedIn" class="h-6 w-6">
+        </a>
+        <a href="https://www.instagram.com/gotogym.sportwear" target="_blank" rel="noopener noreferrer" aria-label="Instagram Sportwear">
+          <img src="{% static 'images/icon_instagram.svg' %}" alt="Instagram Sportwear" class="h-6 w-6">
+        </a>
+        <a href="https://www.instagram.com/gotogymbrasil" target="_blank" rel="noopener noreferrer" aria-label="Instagram Brasil">
+          <img src="{% static 'images/icon_instagram.svg' %}" alt="Instagram Brasil" class="h-6 w-6">
+        </a>
+        <a href="https://co.pinterest.com/gotogym_/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+          <img src="{% static 'images/icon_pinterest.svg' %}" alt="Pinterest" class="h-6 w-6">
+        </a>
+        <a href="https://www.youtube.com/channel/UCXRp8PgcE7L75jEewIixeXg" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <img src="{% static 'images/icon_youtube.svg' %}" alt="YouTube" class="h-6 w-6">
+        </a>
+        <a href="https://angel.co/go-to-gym" target="_blank" rel="noopener noreferrer" aria-label="Angelist">
+          <img src="{% static 'images/icon_angelist.svg' %}" alt="Angelist" class="h-6 w-6">
+        </a>
+        <a href="https://www.crunchbase.com/organization/go-to-gym" target="_blank" rel="noopener noreferrer" aria-label="Crunchbase">
+          <img src="{% static 'images/icon_crunchbase.svg' %}" alt="Crunchbase" class="h-6 w-6">
+        </a>
+        <a href="https://m.me/Gotogym1" target="_blank" rel="noopener noreferrer" aria-label="Facebook Messenger">
+          <img src="{% static 'images/icon_messenger.svg' %}" alt="Facebook Messenger" class="h-6 w-6">
+        </a>
+        <a href="https://soundcloud.com/go-to-gym-sportswear-as-a-service" target="_blank" rel="noopener noreferrer" aria-label="Soundcloud">
+          <img src="{% static 'images/icon_soundcloud.svg' %}" alt="Soundcloud" class="h-6 w-6">
+        </a>
+        <a href="https://www.tiktok.com/@gotogym.sportwear" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <img src="{% static 'images/icon_tiktok.svg' %}" alt="TikTok" class="h-6 w-6">
+        </a>
+      </div>
+      <!-- Quick Links -->
+      <div class="flex flex-wrap justify-center gap-6 mb-6">
+        <a href="{% url 'about' %}" class="text-plata hover:text-dorado text-sm">Acerca de</a>
+        <a href="{% url 'contact' %}" class="text-plata hover:text-dorado text-sm">Contacto</a>
+        <a href="{% url 'privacy_policy' %}" class="text-plata hover:text-dorado text-sm">Política de Privacidad</a>
+        <a href="{% url 'terms_conditions' %}" class="text-plata hover:text-dorado text-sm">Términos y Condiciones</a>
+        <a href="{% url 'faq' %}" class="text-plata hover:text-dorado text-sm">FAQ</a>
+        <a href="{% url 'blog' %}" class="text-plata hover:text-dorado text-sm">Blog</a>
+        <a href="{% url 'careers' %}" class="text-plata hover:text-dorado text-sm">Carreras</a>
+      </div>
+      <!-- Información de Marca -->
+      <p class="text-plata text-lg">
+        GoToGym - La fusión perfecta entre lujo deportivo y bienestar personalizado
+      </p>
+      <p class="text-plata text-sm mt-2">
+        © 2025 GoToGym. Todos los derechos reservados.
+      </p>
+      <!-- Datos de Contacto -->
+      <div class="mt-4">
+        <p class="text-plata text-sm">support@gotogym.store | +57 312 257 0297</p>
+        <p class="text-plata text-sm">Bogotá, Colombia</p>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endblock %}
+

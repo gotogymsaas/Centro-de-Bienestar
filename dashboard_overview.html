@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard General de GoToGym</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{% static 'css/ttnorms.css' %}">
+    <style>
+        body {
+            font-family: 'TTnorms-Regular', sans-serif;
+            background-color: #F8F9FA;
+            color: #20415B;
+            padding: 2rem;
+        }
+        h1 {
+            color: #D4AF37;
+            font-family: 'TTnorms-Bold', sans-serif;
+        }
+        .chart-container {
+            width: 48%;
+            margin: 1%;
+            display: inline-block;
+            vertical-align: top;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard General de GoToGym</h1>
+
+    <div class="chart-container">
+        <h2>Usuarios vs. Grupos</h2>
+        <canvas id="authChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <h2>NPS (por fecha) - Promedio: {{ nps_avg|default:"N/A" }}</h2>
+        <canvas id="npsChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <h2>Órdenes por Estado</h2>
+        <canvas id="ordersChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <h2>Resumen General</h2>
+        <ul>
+            <li>Perfiles: {{ profile_count }}</li>
+            <li>Productos: {{ product_count }}</li>
+            <li>Empresas: {{ company_count }}</li>
+        </ul>
+    </div>
+
+    <div class="chart-container">
+        <h2>Bienestar - Felicidad y Actividad Física</h2>
+        <canvas id="wellnessChart"></canvas>
+    </div>
+
+    <script>
+      const authCtx = document.getElementById('authChart').getContext('2d');
+      new Chart(authCtx, {
+          type: 'bar',
+          data: {
+              labels: ['Usuarios', 'Grupos'],
+              datasets: [{
+                  label: 'Cantidad',
+                  data: [{{ user_count }}, {{ group_count }}],
+                  backgroundColor: ['#65D3A8', '#D4AF37'],
+                  borderColor: ['#1A9B76', '#B99E45'],
+                  borderWidth: 1
+              }]
+          },
+          options: { scales: { y: { beginAtZero: true } } }
+      });
+
+      const npsCtx = document.getElementById('npsChart').getContext('2d');
+      new Chart(npsCtx, {
+          type: 'line',
+          data: {
+              labels: {{ nps_labels|safe }},
+              datasets: [{
+                  label: 'NPS',
+                  data: {{ nps_data|safe }},
+                  fill: false,
+                  borderColor: '#20415B',
+                  tension: 0.4
+              }]
+          },
+          options: { scales: { y: { beginAtZero: true } } }
+      });
+
+      const ordersCtx = document.getElementById('ordersChart').getContext('2d');
+      new Chart(ordersCtx, {
+          type: 'pie',
+          data: {
+              labels: {{ orders_labels|safe }},
+              datasets: [{
+                  label: 'Órdenes',
+                  data: {{ orders_data|safe }},
+                  backgroundColor: ['#65D3A8', '#20415B', '#D4AF37', '#E0E3E6'],
+                  borderWidth: 1
+              }]
+          }
+      });
+
+      const wellnessCtx = document.getElementById('wellnessChart').getContext('2d');
+      new Chart(wellnessCtx, {
+          type: 'bar',
+          data: {
+              labels: ['Felicidad Promedio', 'Actividad Física Total'],
+              datasets: [{
+                  label: 'Valor',
+                  data: [{{ avg_happiness|default:"0" }}, {{ total_physical_activity|default:"0" }}],
+                  backgroundColor: ['#65D3A8', '#D4AF37'],
+                  borderColor: ['#1A9B76', '#B99E45'],
+                  borderWidth: 1
+              }]
+          },
+          options: { scales: { y: { beginAtZero: true } } }
+      });
+    </script>
+</body>
+</html>
