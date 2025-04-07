@@ -55,6 +55,49 @@
         <li><a href="/gestion/" class="block hover:text-[#C5A46B]">Contacto</a></li>
       </ul>
     </div>
+
+    <!-- Botones para Login y Registro (escritorio) -->
+    <div class="hidden md:flex space-x-4">
+      <a href="{% url 'login' %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+        Iniciar Sesión
+      </a>
+      <a href="{% url 'register' %}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+        Crear Cuenta
+      </a>
+    </div>
+    <!-- Botón para menú móvil -->
+    <button class="md:hidden text-[#C5A46B]" onclick="toggleMobileMenu()">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </nav>
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="hidden bg-white shadow p-4">
+    <ul class="space-y-4 text-sm font-medium text-[#101820]">
+      <li><a href="/" class="block hover:text-[#C5A46B]">Inicio</a></li>
+      <li><a href="/productos/" class="block hover:text-[#C5A46B]">Colección</a></li>
+      <li><a href="/pedidos/" class="block hover:text-[#C5A46B]">Pedidos</a></li>
+      <li><a href="/bienestar/" class="block hover:text-[#C5A46B]">Bienestar</a></li>
+      <li><a href="/metricas/" class="block hover:text-[#C5A46B]">Tecnología</a></li>
+      <li><a href="/gestion/" class="block hover:text-[#C5A46B]">Contacto</a></li>
+      <li>
+        <a href="{% url 'login' %}" class="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          Iniciar Sesión
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'register' %}" class="block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+          Crear Cuenta
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
   </header>
 
   <!-- HERO SECTION -->
@@ -89,7 +132,6 @@
     <p class="mt-6 text-xl text-white/90 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
       Fusionamos lujo deportivo con nanotecnología avanzada y bienestar integral, creando una experiencia de usuario única y emocionalmente gratificante.
     </p>
-  </div>
 </section>
 
   <!-- BENEFICIOS CLAVE -->
