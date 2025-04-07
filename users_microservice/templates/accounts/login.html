@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoToGym - Registro de Usuario</title>
+
+  <!-- Tailwind CSS + estilos personalizados -->
+  <link href="/static/css/tailwind.css" rel="stylesheet" />
+  <link href="/static/css/custom_styles.css" rel="stylesheet" />
+
+  <!-- Animaciones AOS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Fuentes de lujo -->
+  <link href="/static/fonts/@fontsource/playfair-display/700.css" rel="stylesheet">
+  <link href="/static/fonts/@fontsource/outfit/400.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #0B0B0C;
+      color: #fff;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <section class="flex items-center justify-center w-full h-full py-12 px-4">
+    <div class="max-w-md w-full bg-[#101012] rounded-3xl shadow-2xl p-10 border border-gray-800" data-aos="fade-up">
+
+      <!-- Título principal -->
+      <h2 class="text-3xl font-bold text-center mb-3 font-serif">Crea tu Cuenta</h2>
+      <p class="text-center text-gray-300 text-sm mb-8">Vive la experiencia cuántica de GoToGym y eleva tu bienestar.</p>
+
+<!-- Social Login Lujo GoToGym -->
+<div class="flex flex-col space-y-3 mb-6" data-aos="fade-up">
+
+  <!-- 1. Apple -->
+  <button class="flex items-center justify-center w-full bg-black py-3 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 border border-white/10">
+    <svg class="h-5 w-5 mr-2 text-white" fill="currentColor" viewBox="0 0 384 512">
+      <path d="M318.7 268.6c-2.3-38.2 16.7-66.7 51.8-87.4-19.1-27.8-48.2-43.3-86.8-46.5-36.9-3.1-73.4 21.8-86.2 21.8-13.2 0-45.3-21-70.2-21C89.1 135.1 54 153 35 186c-38 66.1-9.7 163.8 27.3 217.4 18.1 26.5 39.7 56.1 67.9 54.9 27.2-1.1 37.5-17.5 70.5-17.5s41.5 17.5 70.3 17.1c28.9-.4 47.2-27.3 64.9-54 11.1-16.6 15.7-25.1 24.6-44.1-64.6-24.5-76.6-115.2-6.8-141.2z"/>
+    </svg>
+    <span class="text-white font-medium text-sm">Continuar con Apple</span>
+  </button>
+
+  <!-- 2. LinkedIn -->
+  <button class="flex items-center justify-center w-full bg-[#0a66c2] py-3 rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
+    <svg class="h-5 w-5 mr-2 text-white" fill="currentColor" viewBox="0 0 448 512">
+      <path d="M100.28 448H7.4V148.9h92.88zm-46.14-340a53 53 0 110-106 53 53 0 010 106zM447.8 448h-92.4V302.4c0-34.7-12.4-58.4-43.3-58.4-23.6 0-37.6 15.8-43.8 31-2.3 5.5-2.8 13.2-2.8 20.9V448h-92.4s1.2-241.4 0-266.1h92.4v37.7c12.3-19 34.3-46 83.6-46 61 0 106.7 39.8 106.7 125.3V448z"/>
+    </svg>
+    <span class="text-white font-medium text-sm">Continuar con LinkedIn</span>
+  </button>
+
+  <!-- 3. Google -->
+  <button class="flex items-center justify-center w-full bg-white py-3 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 border border-gray-300">
+    <svg class="h-5 w-5 mr-2 text-black" fill="currentColor" viewBox="0 0 488 512">
+      <path d="M488 261.8c0-14.7-1.3-29.1-3.8-43.1H249v81.7h135.7c-5.9 32.3-23.9 59.6-50.8 77.7v64.4h82.3c48.1-44.3 71.8-109.6 71.8-180.7z"/>
+      <path d="M249 512c67.2 0 123.5-22.3 164.6-60.5l-82.3-64.4c-22.9 15.4-52.3 24.4-82.3 24.4-63.4 0-117.1-42.6-136.2-99.7H28.6v62.5C68.5 457.7 152.9 512 249 512z"/>
+      <path d="M112.9 311.2c-6-18-9.4-37.2-9.4-57.2s3.4-39.2 9.4-57.2V134H28.6C10.2 171 0 210.3 0 252c0 41.7 10.2 81 28.6 118.1l84.3-59z"/>
+      <path d="M249 97.6c34.5 0 65.3 11.9 89.8 31.4l67.1-67.1C362 25 316.2 0 249 0 152.9 0 68.5 54.3 28.6 131.9l84.3 59C131.9 140.2 185.6 97.6 249 97.6z"/>
+    </svg>
+    <span class="text-black font-medium text-sm">Continuar con Google</span>
+  </button>
+
+  <!-- 4. Twitter -->
+  <button class="flex items-center justify-center w-full bg-white py-3 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 border border-[#D4B46A]">
+    <img src="/static/images/Icono twitter.png" alt="Twitter" class="w-5 h-5 mr-2">
+    <span class="text-black font-medium text-sm">Regístrate con Twitter</span>
+  </button>
+
+  <!-- 5. Facebook -->
+  <button class="flex items-center justify-center w-full bg-white py-3 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 border border-[#D4B46A]">
+    <img src="/static/images/Icono facebook.png" alt="Facebook" class="w-5 h-5 mr-2">
+    <span class="text-black font-medium text-sm">Regístrate con Facebook</span>
+  </button>
+</div>
+
+      <!-- Separador 'O' -->
+      <div class="text-center text-gray-400 text-sm my-6 flex items-center justify-center">
+        <span class="border-b border-gray-600 w-1/4"></span>
+        <span class="mx-2">O usa tu correo</span>
+        <span class="border-b border-gray-600 w-1/4"></span>
+      </div>
+
+      <!-- Formulario de Registro -->
+      <form class="space-y-5">
+        <!-- Correo -->
+        <div>
+          <label class="block text-sm mb-1">Correo Electrónico</label>
+          <input type="email" placeholder="tucorreo@ejemplo.com"
+                 class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white
+                        focus:outline-none focus:ring-2 focus:ring-[#D4B46A]" required />
+        </div>
+        <!-- Contraseña -->
+        <div>
+          <label class="block text-sm mb-1">Contraseña</label>
+          <input type="password" placeholder="••••••"
+                 class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white
+                        focus:outline-none focus:ring-2 focus:ring-[#D4B46A]" required />
+        </div>
+        <!-- Confirmar Contraseña -->
+        <div>
+          <label class="block text-sm mb-1">Confirmar Contraseña</label>
+          <input type="password" placeholder="Repite tu contraseña"
+                 class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white
+                        focus:outline-none focus:ring-2 focus:ring-[#D4B46A]" required />
+        </div>
+
+        <!-- Check Newsletter -->
+        <div class="flex items-center text-sm">
+          <input type="checkbox" id="newsletter" class="mr-2 accent-[#D4B46A]">
+          <label for="newsletter">Deseo recibir tips de bienestar y promociones exclusivas</label>
+        </div>
+
+        <!-- Términos y Condiciones -->
+        <div class="flex items-start text-sm">
+          <input type="checkbox" id="terminos" required class="mt-1 mr-2 accent-[#D4B46A]">
+          <label for="terminos">
+            He leído y acepto los
+            <a href="/terminos-y-condiciones" target="_blank" class="text-[#D4B46A] underline">
+              Términos y Condiciones
+            </a>
+            y la
+            <a href="/politica-de-privacidad" target="_blank" class="text-[#D4B46A] underline">
+              Política de Privacidad
+            </a>.
+          </label>
+        </div>
+
+        <!-- Botón Crear Cuenta -->
+        <button type="submit"
+                class="w-full bg-[#D4B46A] text-white py-3 rounded-xl font-semibold
+                       hover:scale-105 transition-transform duration-300 mt-4">
+          Crear Cuenta
+        </button>
+      </form>
+
+      <!-- Link Iniciar Sesión -->
+      <p class="text-center text-sm text-gray-400 mt-6">
+        ¿Ya tienes cuenta?
+        <a href="/login" class="text-[#D4B46A] hover:underline">Inicia sesión aquí</a>
+      </p>
+
+      <!-- Mensaje Final -->
+      <p class="mt-8 text-xs text-gray-500 text-center">
+        Con tu registro, impulsas una forma inteligente y segura de cuidar tu salud y tu estilo.<br>
+        GoToGym protege tu información con estándares de seguridad de clase mundial.
+      </p>
+    </div>
+  </section>
+
+  <!-- AOS Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+  </script>
+</body>
+</html>
+
