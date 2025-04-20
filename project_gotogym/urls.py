@@ -24,7 +24,7 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('influencers/', include('influencers.urls')),    path('cart/', include('shopping_cart.urls')),    path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name="src/home.html"), name="home"),
     path('productos/', TemplateView.as_view(template_name="src/products.html"), name="list_product"),
     path('pedidos/', TemplateView.as_view(template_name="src/orders.html"), name="my_order"),

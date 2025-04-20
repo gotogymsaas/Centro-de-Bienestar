@@ -49,7 +49,8 @@ module.exports = {
     },
   },
   plugins: [
-    // Eliminamos o comentamos plugins que no vamos a usar:
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),    // Eliminamos o comentamos plugins que no vamos a usar:
     // require('@tailwindcss/forms'),
     // require('@tailwindcss/typography'),
     // require('tailwindcss-animate'),

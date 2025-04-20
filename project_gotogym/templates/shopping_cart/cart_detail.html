@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="container mx-auto py-8">
+  <h1 class="text-3xl font-bold mb-6">Tu Carrito</h1>
+  {% if cart.items.exists %}
+    <ul class="space-y-4">
+      {% for item in cart.items.all %}
+      <li class="flex justify-between items-center bg-white p-4 rounded shadow">
+        <div>{{ item.product.name }} (x{{ item.quantity }})</div>
+        <div>
+          <a href="{% url 'shopping_cart:remove_from_cart' item.id %}" class="text-red-600">Eliminar</a>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="mt-6 flex justify-end space-x-4">
+      <a href="{% url 'mp_checkout' %}" class="px-6 py-3 bg-yellow-500 text-white rounded">Pagar con Mercado Pago</a>
+      <a href="{% url 'pp_checkout' %}" class="px-6 py-3 bg-blue-600 text-white rounded">Pagar con PayPal</a>
+    </div>
+  {% else %}
+    <p>No hay productos en tu carrito.</p>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="container mx-auto py-8 prose lg:prose-xl">
+  <h1 class="text-4xl font-playfair">Panel de Influencer</h1>
+  {% if user.influencer %}
+    <p>Total de clics referidos: <strong>{{ clicks }}</strong></p>
+    <h2 class="mt-6 text-2xl">Tus pedidos y comisiones</h2>
+    <ul class="list-disc ml-6">
+      {% for o in orders %}
+      <li>
+        Pedido #{{ o.order.id }} – Comisión: ${{ o.amount }}
+      </li>
+      {% empty %}
+      <li>Aún no tienes pedidos referidos.</li>
+      {% endfor %}
+    </ul>
+    <p class="mt-4 text-xl">Total comisiones: <strong>${{ total_commission }}</strong></p>
+  {% else %}
+    <p>Aún no estás registrado como influencer.</p>
+  {% endif %}
+</section>
+{% endblock %}

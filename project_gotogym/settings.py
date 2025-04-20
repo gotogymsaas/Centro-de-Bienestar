@@ -14,6 +14,9 @@ DEBUG = os.environ.get("DEBUG", "True") == "True"
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 
 # Aplicaciones instaladas
+
+
+
 INSTALLED_APPS = [
     # Apps predeterminadas de Django
     "django.contrib.admin",
@@ -22,9 +25,20 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # Apps de terceros
+
+    # Librerías de UI
     "crispy_forms",
     "crispy_tailwind",
+
+    # Tu app de blog
+    "blog",
+
+    # Carrito personalizado
+    "shopping_cart",
+
+    # Influencers
+    "influencers",
+
     # Apps del proyecto
     "users",
     "products",
@@ -33,9 +47,11 @@ INSTALLED_APPS = [
     "wellness",
     "metric",
     "gestion",
-"documents",
-
+    "documents",
 ]
+
+
+
 
 # Middleware
 MIDDLEWARE = [
@@ -52,12 +68,13 @@ ROOT_URLCONF = "project_gotogym.urls"
 
 # Configuración de plantillas
 
-
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "DIRS": [
+            os.path.join(BASE_DIR, "templates"),
+            BASE_DIR / "templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -65,12 +82,11 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                # ...otros context_processors existentes...
             ],
         },
     },
 ]
-
-
 
 
 WSGI_APPLICATION = "project_gotogym.wsgi.application"

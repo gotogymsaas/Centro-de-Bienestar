@@ -43,6 +43,19 @@ INSTALLED_APPS = [
     # 'ai_assistant',
 ]
 
+BLOG  = [
+    # … tus apps existentes …
+    'crispy_forms',
+    'crispy_tailwind',
+    'blog',
+]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
+
+
+
+
 # Configuración del sitio para flatpages
 SITE_ID = 1
 
