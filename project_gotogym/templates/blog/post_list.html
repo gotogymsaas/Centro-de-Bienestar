@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block title %}Blog – GoToGym{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/custom_styles.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Outfit&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block header %}
+  <h1 class="text-4xl font-bold font-playfair text-teal-700 mb-8 text-center aos-init" data-aos="fade-down">Nuestro Blog</h1>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 aos-init" data-aos="fade-up" data-aos-delay="100">
+  {% for post in posts %}
+  <article class="bg-white rounded-xl glassmorphism shadow-xl overflow-hidden group transition duration-300 hover:shadow-2xl hover:scale-105">
+    <a href="{% url 'blog_detail' slug=post.slug %}">
+      {% if post.featured_image %}
+        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500 ease-out">
+      {% endif %}
+      <div class="p-6">
+        <h2 class="font-playfair text-2xl font-semibold text-gray-900 mb-3">{{ post.title }}</h2>
+        <p class="font-outfit text-gray-700 mb-4">{{ post.excerpt }}</p>
+        <span class="inline-block text-teal-500 font-medium hover:underline transition duration-200">Leer más →</span>
+      </div>
+    </a>
+  </article>
+  {% empty %}
+    <p class="col-span-full text-center font-outfit text-gray-500">No hay artículos disponibles.</p>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
+{% endblock %}
+
