@@ -16,3 +16,4 @@ venv_gotogym/
 # Otros archivos temporales
 dump.rdb
 
+node_modules/
