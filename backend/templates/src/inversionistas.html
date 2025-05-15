@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Inversionistas - GoToGym{% endblock %}
+{% block content %}
+<!-- Hero Section para Inversionistas -->
+<section class="relative bg-cover bg-center h-96" style="background-image: url('{% static 'images/investor-hero.jpg' %}');">
+  <div class="absolute inset-0 bg-black opacity-60"></div>
+  <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+    <h1 class="text-5xl font-extrabold text-dorado drop-shadow-xl">Inversionistas</h1>
+    <p class="mt-4 text-xl text-esmeralda drop-shadow-md">
+      Descubre las oportunidades y la visión de futuro de GoToGym.
+    </p>
+  </div>
+</section>
+
+<!-- Sección: Nuestra Propuesta de Valor -->
+<section class="py-12 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-dorado text-center mb-8">Nuestra Propuesta de Valor</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-6 bg-plata rounded shadow-lg text-center">
+        <h3 class="text-2xl font-bold text-dorado">Innovación Tecnológica</h3>
+        <p class="mt-2 text-esmeralda">
+          Revolucionamos la moda deportiva con grafeno y nanotecnología para transformar el bienestar.
+        </p>
+      </div>
+      <div class="p-6 bg-plata rounded shadow-lg text-center">
+        <h3 class="text-2xl font-bold text-dorado">Crecimiento Escalable</h3>
+        <p class="mt-2 text-esmeralda">
+          Modelo "Sportswear as a Service" con alianzas estratégicas en mercados globales.
+        </p>
+      </div>
+      <div class="p-6 bg-plata rounded shadow-lg text-center">
+        <h3 class="text-2xl font-bold text-dorado">Sostenibilidad & Ética</h3>
+        <p class="mt-2 text-esmeralda">
+          Prácticas responsables que protegen el planeta y generan impacto social positivo.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Indicadores Clave -->
+<section class="py-12 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-dorado text-center mb-8">Indicadores Clave</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="p-6 bg-plata rounded shadow-lg">
+        <h3 class="text-2xl font-bold text-dorado">Impacto en Salud</h3>
+        <p class="mt-2 text-esmeralda">
+          +10 años de vida saludable, -30% de visitas médicas y mayor calidad de vida.
+        </p>
+      </div>
+      <div class="p-6 bg-plata rounded shadow-lg">
+        <h3 class="text-2xl font-bold text-dorado">Ahorro Global</h3>
+        <p class="mt-2 text-esmeralda">
+          Ahorro estimado de USD $10,000M anual en sistemas de salud.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Pitch Deck y Documentos Estratégicos -->
+<section class="py-12 bg-white">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold text-dorado mb-6">Pitch Deck & Documentos Clave</h2>
+    <p class="text-xl text-esmeralda mb-6">
+      Explora nuestros documentos estratégicos para conocer más sobre nuestro modelo de negocio y visión de futuro.
+    </p>
+    <a href="https://www.dropbox.com/scl/fi/4j4hmjoyiqy0bef76506i/Paper_Estrategia-Cuantica-Go_To_Gym.pdf?dl=0" target="_blank" rel="noopener noreferrer" class="inline-block bg-dorado text-white px-8 py-4 rounded-full font-bold transition-transform transform hover:scale-105">
+      Descargar Pitch Deck
+    </a>
+  </div>
+</section>
+
+<!-- Sección: Contacto para Inversionistas -->
+<section class="py-12 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-dorado text-center mb-8">Contacto para Inversionistas</h2>
+    <div class="max-w-xl mx-auto">
+      <p class="text-lg text-esmeralda text-center">
+        ¿Interesado en unirte a la revolución GoToGym? Contáctanos para conocer oportunidades de inversión y alianzas estratégicas.
+      </p>
+      <div class="mt-8 text-center">
+        <a href="mailto:investors@gotogym.store" class="inline-block bg-dorado text-white px-8 py-4 rounded-full font-bold transition-transform transform hover:scale-105">
+          Contactar Inversionistas
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+

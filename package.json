@@ -1,0 +1,51 @@
+{
+  "name": "project_gotogym",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+  "build": "rm -rf www/* && cp -R \"APP GoToGym\"/* www/ && echo \"PWA empaquetada en www/\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/android": "^7.2.0",
+    "@capacitor/ios": "^7.2.0",
+    "@fontsource/outfit": "^5.2.5",
+    "@fontsource/playfair-display": "^5.2.5",
+    "@heroicons/react": "^2.2.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.16",
+    "alpinejs": "^3.14.9",
+    "aos": "^2.3.4",
+    "gsap": "^3.12.7",
+    "headlessui": "^0.0.0",
+    "mercadopago": "^2.4.0",
+    "next": "^15.3.1",
+    "next-i18next": "^15.4.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "swiper": "^11.2.6"
+  },
+  "devDependencies": {
+  "@capacitor/cli": "^7.2.0",
+    "@tailwindcss/forms": "^0.5.10",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "@capacitor/cli": "^7.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gotogymsaas/Centro-de-Bienestar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gotogymsaas/Centro-de-Bienestar/issues"
+  },
+  "homepage": "https://github.com/gotogymsaas/Centro-de-Bienestar#readme",
+  "description": ""
+}

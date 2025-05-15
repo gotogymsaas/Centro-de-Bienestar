@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoToGym - Lujo Deportivo y Bienestar</title>
+  <link href="/static/css/tailwind.css" rel="stylesheet" />
+  <link href="/static/css/custom_styles.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="/static/fonts/@fontsource/playfair-display/700.css" rel="stylesheet">
+  <link href="/static/fonts/@fontsource/outfit/400.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #F8F9FA;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+    blockquote:hover {
+      transform: scale(1.02);
+      transition: all 0.3s ease-in-out;
+      color: #C5A46B;
+    }
+  </style>
+</head>
+<body class="text-[#101820]">
+
+  <!-- HEADER -->
+  <header class="bg-[#101820] shadow fixed w-full z-50">
+    <nav class="container mx-auto flex items-center justify-between p-4 text-white">
+      <img src="/static/images/Logo_GoToGym_Blanco.png" alt="GoToGym" class="h-10">
+      <ul class="hidden md:flex space-x-8 text-sm font-medium">
+        <li><a href="/" class="hover:text-[#C5A46B] transition">Inicio</a></li>
+        <li><a href="/productos/" class="hover:text-[#C5A46B] transition">Colección</a></li>
+        <li><a href="/pedidos/" class="hover:text-[#C5A46B] transition">Pedidos</a></li>
+        <li><a href="/bienestar/" class="hover:text-[#C5A46B] transition">Bienestar</a></li>
+        <li><a href="/metricas/" class="hover:text-[#C5A46B] transition">Tecnología</a></li>
+        <li><a href="/gestion/" class="hover:text-[#C5A46B] transition">Contacto</a></li>
+      </ul>
+      <button class="md:hidden text-[#C5A46B]" onclick="toggleMobileMenu()">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg p-4">
+      <ul class="space-y-4 text-sm font-medium text-[#101820]">
+        <li><a href="/" class="block hover:text-[#C5A46B]">Inicio</a></li>
+        <li><a href="/productos/" class="block hover:text-[#C5A46B]">Colección</a></li>
+        <li><a href="/pedidos/" class="block hover:text-[#C5A46B]">Pedidos</a></li>
+        <li><a href="/bienestar/" class="block hover:text-[#C5A46B]">Bienestar</a></li>
+        <li><a href="/metricas/" class="block hover:text-[#C5A46B]">Tecnología</a></li>
+        <li><a href="/gestion/" class="block hover:text-[#C5A46B]">Contacto</a></li>
+      </ul>
+    </div>
+
+    <!-- Botones para Login y Registro (escritorio) -->
+    <div class="hidden md:flex space-x-4">
+      <a href="{% url 'login' %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+        Iniciar Sesión
+      </a>
+      <a href="{% url 'register' %}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+        Crear Cuenta
+      </a>
+    </div>
+    <!-- Botón para menú móvil -->
+    <button class="md:hidden text-[#C5A46B]" onclick="toggleMobileMenu()">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </nav>
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="hidden bg-white shadow p-4">
+    <ul class="space-y-4 text-sm font-medium text-[#101820]">
+      <li><a href="/" class="block hover:text-[#C5A46B]">Inicio</a></li>
+      <li><a href="/productos/" class="block hover:text-[#C5A46B]">Colección</a></li>
+      <li><a href="/pedidos/" class="block hover:text-[#C5A46B]">Pedidos</a></li>
+      <li><a href="/bienestar/" class="block hover:text-[#C5A46B]">Bienestar</a></li>
+      <li><a href="/metricas/" class="block hover:text-[#C5A46B]">Tecnología</a></li>
+      <li><a href="/gestion/" class="block hover:text-[#C5A46B]">Contacto</a></li>
+      <li>
+        <a href="{% url 'login' %}" class="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          Iniciar Sesión
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'register' %}" class="block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+          Crear Cuenta
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('/static/images/img/hero.webp');">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
+    <div class="relative z-10 text-center px-4" data-aos="fade-up">
+      <h1 class="text-6xl font-bold text-white drop-shadow-xl">Innovación Cuántica y Bienestar Personalizado</h1>
+      <p class="mt-4 text-xl text-gray-200">Descubre la elegancia del lujo deportivo combinado con tecnología avanzada.</p>
+      <a href="/productos/" class="mt-8 inline-block bg-gradient-to-r from-[#C5A46B] to-[#003057] text-white font-semibold px-8 py-3 rounded-full drop-shadow-md hover:scale-105 transition duration-300">Explorar Ahora</a>
+    </div>
+  </section>
+
+  <!-- COLECCIÓN DESTACADA -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-[#C5A46B] mb-8">Colección Destacada</h2>
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+        <img src="/static/images/img/coleccion_john_frank_alza.webp" alt="Colección John Frank Alza" class="rounded-xl shadow-lg w-full md:w-1/2" data-aos="fade-right">
+        <div class="text-left md:w-1/2" data-aos="fade-left">
+          <h3 class="text-3xl font-semibold text-[#101820]">Alianza Exclusiva con John Frank Alza</h3>
+          <p class="mt-4 text-lg text-[#101820cc]">En una colaboración revolucionaria con el reconocido diseñador John Frank Alza, presentamos una colección que redefine la moda deportiva fusionando la alta costura con la más avanzada tecnología textil.</p>
+          <a href="/productos/" class="mt-6 inline-block bg-[#C5A46B] text-white px-6 py-3 rounded-full hover:shadow-xl transition duration-300">Descubrir Colección</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUESTRA ESENCIA -->
+<section class="py-20 bg-[#101820]">
+  <div class="container mx-auto text-center">
+    <h2 class="text-4xl font-bold text-[#E5E5E5]" data-aos="fade-up">Nuestra Esencia</h2>
+    <p class="mt-6 text-xl text-white/90 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+      Fusionamos lujo deportivo con nanotecnología avanzada y bienestar integral, creando una experiencia de usuario única y emocionalmente gratificante.
+    </p>
+</section>
+
+  <!-- BENEFICIOS CLAVE -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-[#C5A46B] mb-12" data-aos="fade-up">Beneficios Clave</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="p-6 bg-white shadow-lg rounded-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold text-[#101820]">Rendimiento Mejorado</h3>
+          <p class="mt-3 text-[#101820cc]">Optimiza tu desempeño deportivo con textiles avanzados.</p>
+        </div>
+        <div class="p-6 bg-white shadow-lg rounded-xl" data-aos="zoom-in" data-aos-delay="100">
+          <h3 class="text-2xl font-semibold text-[#101820]">Protección UV</h3>
+          <p class="mt-3 text-[#101820cc]">Cuida tu piel con nuestra tecnología antimicrobiana y protección solar integrada.</p>
+        </div>
+        <div class="p-6 bg-white shadow-lg rounded-xl" data-aos="zoom-in" data-aos-delay="200">
+          <h3 class="text-2xl font-semibold text-[#101820]">Control Térmico</h3>
+          <p class="mt-3 text-[#101820cc]">Mantente cómodo con materiales que regulan tu temperatura corporal.</p>
+        </div>
+        <div class="p-6 bg-white shadow-lg rounded-xl" data-aos="zoom-in" data-aos-delay="300">
+          <h3 class="text-2xl font-semibold text-[#101820]">Confort Personalizado</h3>
+          <p class="mt-3 text-[#101820cc]">Texturas únicas que brindan una experiencia sensorial inigualable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIO -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-4xl font-bold text-[#C5A46B]">Nuestros Clientes Opinan</h2>
+      <blockquote class="mt-8 italic text-xl text-[#101820] max-w-3xl mx-auto">"Las prendas de GoToGym se convirtieron en mis favoritas. Al principio parecían normales, pero con el tiempo noté la diferencia positiva en rendimiento y comodidad, ahora no puedo hacer ejercicio sin ellas."</blockquote>
+      <p class="mt-4 text-[#C5A46B] font-semibold">— Juan Manuel Goenaga</p>
+    </div>
+  </section>
+
+  <!-- TECNOLOGÍA -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto text-center">
+    <h2 class="text-4xl font-bold text-[#101820]" data-aos="fade-up">Tecnología Innovadora</h2>
+    <p class="mt-6 text-xl text-[#101820cc] max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+      Utilizamos grafeno y nanotecnología en nuestras prendas, garantizando resistencia, flexibilidad y un compromiso continuo con la sostenibilidad ambiental.
+    </p>
+    <a href="/tecnologia/" class="mt-6 inline-block bg-gradient-to-r from-[#C5A46B] to-[#003057] text-white px-6 py-3 rounded-full hover:shadow-xl transition duration-300">Conocer más</a>
+  </div>
+</section>
+
+  <!-- FOOTER FINAL -->
+<footer class="bg-[#101012] text-[#E0E3E6] pt-14 pb-10">
+  <div class="container mx-auto px-4">
+    
+    <!-- Íconos de Redes Sociales -->
+    <div class="flex justify-center flex-wrap gap-6 mb-10">
+      <a href="https://www.facebook.com/Gotogym.Sportwear" target="_blank" class="hover:opacity-80 transition duration-300">
+        <img src="{% static 'images/facebook.png' %}" alt="Facebook" class="h-6 w-6">
+      </a>
+      <a href="https://www.linkedin.com/company/33262154/" target="_blank" class="hover:opacity-80 transition duration-300">
+        <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn" class="h-6 w-6">
+      </a>
+      <a href="https://www.instagram.com/gotogym.sportwear" target="_blank" class="hover:opacity-80 transition duration-300">
+        <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="h-6 w-6">
+      </a>
+      <a href="https://www.tiktok.com/@gotogym.sportwear" target="_blank" class="hover:opacity-80 transition duration-300">
+        <img src="{% static 'images/tiktok.png' %}" alt="TikTok" class="h-6 w-6">
+      </a>
+      <a href="https://co.pinterest.com/gotogym_/" target="_blank" class="hover:opacity-80 transition duration-300">
+        <img src="{% static 'images/pinterest.png' %}" alt="Pinterest" class="h-6 w-6">
+      </a>
+      <a href="https://www.youtube.com/channel/UCXRp8PgcE7L75jEewIixeXg" target="_blank" class="hover:opacity-80 transition duration-300">
+        <img src="{% static 'images/youtube.png' %}" alt="YouTube" class="h-6 w-6">
+      </a>
+    </div>
+
+    <!-- Navegación secundaria -->
+    <div class="flex flex-wrap justify-center gap-8 mb-8 text-sm font-light">
+      <a href="{% url 'about' %}" class="hover:text-[#D4B46A] transition">Acerca de</a>
+      <a href="{% url 'contact' %}" class="hover:text-[#D4B46A] transition">Contacto</a>
+      <a href="{% url 'privacy_policy' %}" class="hover:text-[#D4B46A] transition">Política de Privacidad</a>
+      <a href="{% url 'terms_conditions' %}" class="hover:text-[#D4B46A] transition">Términos y Condiciones</a>
+      <a href="{% url 'faq' %}" class="hover:text-[#D4B46A] transition">FAQ</a>
+      <a href="{% url 'blog' %}" class="hover:text-[#D4B46A] transition">Blog</a>
+      <a href="{% url 'careers' %}" class="hover:text-[#D4B46A] transition">Carreras</a>
+    </div>
+
+    <!-- Lema y legal -->
+    <div class="text-center">
+      <p class="text-lg font-medium text-[#D4B46A] tracking-wide">
+        GoToGym — La fusión perfecta entre lujo deportivo y bienestar personalizado
+      </p>
+      <p class="text-xs mt-3 text-[#E0E3E6]/70">© 2025 GoToGym. Todos los derechos reservados.</p>
+    </div>
+
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
+

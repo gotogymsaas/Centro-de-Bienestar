@@ -1,0 +1,146 @@
+{% load static %}
+<header class="w-full bg-white shadow">
+  <div class="text-center">
+    <h2 class="text-sm p-2 text-[#20415b]">
+      ¡Bienvenidos! Todos los productos se envían desde BRASIL
+    </h2>
+    <h2 class="bg-black/75 text-white p-2 text-sm">
+      Por favor, configure el país, región, y su moneda
+    </h2>
+  </div>
+  <a
+    href="https://www.whatsapp.com"
+    target="_blank"
+    class="fixed bottom-12 right-2 z-50"
+  >
+    <img src="{% static 'images/whatsapp.png'%}" alt="whatsapp" class="w-10 h-10" />
+  </a>
+  <div>
+    <form
+      class="fixed bottom-12 left-0 z-50 flex items-center justify-center w-14 h-14 text-sm"
+    >
+      <select
+        name="Moneda"
+        id="Moneda"
+        class="bg-white text-black border-2 border-[#20415b] rounded-sm"
+      >
+        <option value="COP">
+          <img src="{% static 'images/Colombia.png'%}" alt="Colombia" />COP
+        </option>
+        <option value="USD">
+          <img src="{% static 'images/USA.png'%}" alt="USA" />USD
+        </option>
+        <option value="CAD">
+          <img src="{% static 'images/Canada.jpeg'%}" alt="Canada" />CAD
+        </option>
+        <option value="EU">
+          <img src="{% static 'images/Union Europea.png'%}" alt="UE" />EU
+        </option>
+        <option value="LEs">
+          <img src="{% static 'images/UK.png'%}" alt="UK" />LEs
+        </option>
+      </select>
+    </form>
+  </div>
+
+  <div
+    class="container mx-auto px-4 py-2 flex flex-col sm:flex-row items-center justify-between"
+  >
+    <div class="flex items-center justify-center w-full">
+      <img
+      src="{% static 'images/oscuro.png' %}"
+      alt="Logo"
+      class="w-16 h-16"
+  />
+    </div>
+    <div class="flex items-center justify-center w-full">
+      <a
+        href="{% url 'home' %}"
+        class="text-sm text-left text-gray-600 hover:text-black hover:underline"
+      >
+        Página de inicio
+      </a>
+    </div>
+    <div class="flex items-center justify-center w-full">
+      <a
+        href="{% url 'list_product' %}"
+        class="text-sm text-left hover:underline text-gray-600 hover:text-black"
+      >
+        Productos
+      </a>
+    </div>
+    <div class="flex items-center justify-center w-full">
+      <a
+  href="{% url 'login' %}"
+  class="text-sm text-left hover:underline text-gray-600 hover:text-black"
+>
+  Tecnología
+</a>
+    </div>
+    <div class="flex items-center justify-center w-full">
+      <a
+        href="{% url 'talla' %}"
+        class="text-sm text-left hover:underline text-gray-600 hover:text-black"
+      >
+        Tabla de tallas
+      </a>
+    </div>
+    <div class="flex items-center justify-center w-full">
+      <a
+        href="{% url 'blog' %}"
+        class="text-sm text-left hover:underline text-gray-600 hover:text-black"
+      >
+        Blog
+      </a>
+    </div>
+    <div class="flex items-end justify-end w-full">
+      <form>
+        <select
+          name="Idiomas"
+          id="lang"
+          class="bg-white text-sm border-2 border-gray-300 rounded-sm"
+        >
+          <option value="Español">Español</option>
+          <option value="Ingles">Ingles</option>
+          <option value="Portugues">Portugues</option>
+        </select>
+      </form>
+    </div>
+    <div
+      class="flex items-end justify-end w-full"
+      onclick="redirectToResearch()"
+    >
+      <img src="{% static 'images/lupa.png' %}" alt="Buscar" class="h-4" />
+    </div>
+    <div class="flex items-end justify-end w-full" onclick="redirectToUser()">
+      <img
+        src="{% static 'images/Recurso 5.png' %}"
+        alt="Usuario"
+        class="w-6 h-6"
+      />
+    </div>
+    <div class="flex items-end justify-end w-full" onclick="redirectToStore()">
+      <img src="{% static 'images/Store.png' %}" alt="Tienda" class="w-6 h-6" />
+    </div>
+    <div>
+
+      <div>
+        {% if user.is_authenticated %}
+        <div>
+          Hola,  {{user.username}} 
+        </div>
+        <div>
+          <form action="{%url "logout"%}"method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+          </form>
+        </div>
+        
+        {% else %}
+          <a href="{%url "login"%}">Login</a>
+        {% endif %}</div>
+    </div>
+    
+    </div>
+    
+</header>

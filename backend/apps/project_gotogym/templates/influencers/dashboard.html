@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Panel de Influencer – GoToGym{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/custom_styles.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Outfit&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block header %}
+<h1 class="text-4xl font-playfair font-bold text-center text-teal-700 mb-8 aos-init" data-aos="fade-down">
+  Panel de Influencer
+</h1>
+{% endblock %}
+
+{% block content %}
+<section class="max-w-4xl mx-auto space-y-8 aos-init" data-aos="fade-up" data-aos-delay="100">
+  {% if user.influencer %}
+    <div class="bg-white p-6 rounded-xl shadow-lg glassmorphism text-center font-outfit text-gray-800">
+      <p class="text-lg">Total de clics referidos:</p>
+      <p class="text-3xl font-bold text-teal-600">{{ clicks }}</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow-lg glassmorphism font-outfit text-gray-800">
+      <h2 class="text-2xl font-playfair font-bold mb-4">Tus pedidos y comisiones</h2>
+      {% if orders %}
+        <ul class="space-y-4">
+          {% for o in orders %}
+          <li class="flex justify-between items-center bg-gray-50 p-4 rounded shadow transition hover:bg-gray-100">
+            <span>Pedido #{{ o.order.id }}</span>
+            <span class="font-semibold text-teal-600">${{ o.amount }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="text-center text-gray-500">Aún no tienes pedidos referidos.</p>
+      {% endif %}
+      <div class="mt-6 text-right text-xl font-semibold text-teal-700">
+        Total comisiones: ${{ total_commission }}
+      </div>
+    </div>
+  {% else %}
+    <div class="bg-white p-8 rounded-xl shadow-lg glassmorphism text-center font-outfit text-gray-800">
+      <p class="text-lg mb-4">Aún no estás registrado como influencer.</p>
+      <a href="{% url 'influencers:register' %}" class="inline-block px-6 py-3 bg-teal-600 text-white rounded-full font-medium hover:bg-teal-700 transition">
+        Regístrate aquí
+      </a>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
+{% endblock %}
+

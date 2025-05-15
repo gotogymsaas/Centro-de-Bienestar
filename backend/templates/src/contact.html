@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Contacto - GoToGym{% endblock %}
+{% block content %}
+<div class="container mx-auto px-4 py-12">
+  <h1 class="text-4xl font-extrabold text-dorado text-center">Contáctanos</h1>
+  <p class="mt-4 text-xl text-esmeralda text-center">
+    ¿Tienes preguntas? Estamos aquí para ayudarte.
+  </p>
+  <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Información de Contacto -->
+    <div class="bg-plata p-8 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-bold text-dorado mb-4">Información de Contacto</h2>
+      <ul class="text-esmeralda text-lg space-y-3">
+        <li><strong>Email:</strong> <a href="mailto:support@gotogym.store" class="hover:text-dorado">support@gotogym.store</a></li>
+        <li><strong>Teléfono:</strong> <a href="tel:+573122570297" class="hover:text-dorado">+57 312 257 0297</a></li>
+        <li><strong>Ubicación:</strong> Bogotá, Colombia</li>
+      </ul>
+      <div class="mt-6">
+        <h3 class="text-xl font-semibold text-dorado mb-2">Síguenos en redes sociales</h3>
+        <div class="flex items-center space-x-4">
+          <a href="https://www.facebook.com/Gotogym.Sportwear" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <img src="{% static 'images/icon_facebook.svg' %}" alt="Facebook" class="h-6 w-6">
+          </a>
+          <a href="https://twitter.com/GOTOGYM6" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <img src="{% static 'images/icon_twitter.svg' %}" alt="Twitter" class="h-6 w-6">
+          </a>
+          <a href="https://www.linkedin.com/company/33262154/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <img src="{% static 'images/icon_linkedin.svg' %}" alt="LinkedIn" class="h-6 w-6">
+          </a>
+          <a href="https://www.instagram.com/gotogym.sportwear" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="{% static 'images/icon_instagram.svg' %}" alt="Instagram" class="h-6 w-6">
+          </a>
+          <!-- Se pueden agregar más redes si es necesario -->
+        </div>
+      </div>
+    </div>
+    <!-- Formulario de Contacto -->
+    <div class="bg-plata p-8 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-bold text-dorado mb-4">Envíanos un Mensaje</h2>
+      <form action="{% url 'send_contact' %}" method="POST" class="space-y-6">
+        {% csrf_token %}
+        <div>
+          <label for="name" class="block text-esmeralda font-semibold">Nombre:</label>
+          <input type="text" id="name" name="name" class="w-full mt-1 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-dorado" placeholder="Tu nombre" required>
+        </div>
+        <div>
+          <label for="email" class="block text-esmeralda font-semibold">Email:</label>
+          <input type="email" id="email" name="email" class="w-full mt-1 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-dorado" placeholder="Tu email" required>
+        </div>
+        <div>
+          <label for="message" class="block text-esmeralda font-semibold">Mensaje:</label>
+          <textarea id="message" name="message" rows="5" class="w-full mt-1 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-dorado" placeholder="Escribe tu mensaje aquí" required></textarea>
+        </div>
+        <button type="submit" class="w-full bg-dorado text-white py-3 rounded-full font-bold transition-transform transform hover:scale-105">
+          Enviar Mensaje
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

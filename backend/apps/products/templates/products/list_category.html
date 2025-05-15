@@ -1,0 +1,21 @@
+{% extends "_base.html" %} {% load tailwind_filters %} {% block content %}
+<h1>Lista de Categorías</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Aquí se incluirán los datos dinámicamente -->
+    {% for category in categories %}
+    <tr>
+      <td>{{ category.name }}</td>
+      <td>{{ category.description }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

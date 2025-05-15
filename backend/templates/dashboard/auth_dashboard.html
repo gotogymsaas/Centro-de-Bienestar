@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard de Autenticación y Autorización</title>
+    <!-- Incluir Chart.js desde un CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Dashboard de Autenticación y Autorización</h1>
+    
+    <!-- Gráfico de Crecimiento de Usuarios -->
+    <section style="width: 80%; margin: 20px auto;">
+        <h2>Crecimiento de Usuarios</h2>
+        <canvas id="growthChart" width="400" height="200"></canvas>
+    </section>
+
+    <!-- Gráfico de Distribución de Usuarios por Grupo -->
+    <section style="width: 80%; margin: 20px auto;">
+        <h2>Distribución de Usuarios por Grupo</h2>
+        <canvas id="groupChart" width="400" height="200"></canvas>
+    </section>
+
+    <script>
+      // Gráfico de Crecimiento de Usuarios (líneas)
+      const growthCtx = document.getElementById('growthChart').getContext('2d');
+      const growthChart = new Chart(growthCtx, {
+          type: 'line',
+          data: {
+              labels: {{ growth_labels|safe }},
+              datasets: [{
+                  label: 'Usuarios Registrados',
+                  data: {{ growth_data|safe }},
+                  backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                  borderColor: 'rgba(54, 162, 235, 1)',
+                  borderWidth: 2,
+                  fill: true,
+              }]
+          },
+          options: {
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+      });
+
+      // Gráfico de Distribución de Usuarios por Grupo (pie)
+      const groupCtx = document.getElementById('groupChart').getContext('2d');
+      const groupChart = new Chart(groupCtx, {
+          type: 'pie',
+          data: {
+              labels: {{ group_labels|safe }},
+              datasets: [{
+                  label: 'Usuarios por Grupo',
+                  data: {{ group_data|safe }},
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.5)',
+                      'rgba(54, 162, 235, 0.5)',
+                      'rgba(255, 206, 86, 0.5)',
+                      'rgba(75, 192, 192, 0.5)',
+                      'rgba(153, 102, 255, 0.5)',
+                      'rgba(255, 159, 64, 0.5)'
+                  ],
+                  borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              responsive: true,
+              plugins: {
+                  legend: {
+                      position: 'top',
+                  }
+              }
+          }
+      });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+{% extends "_base.html" %} {% block content %}
+
+<h1>Lista de Productos</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Inventario</th>
+      <th>Categoría</th>
+      <th>Imagen</th>
+      <th>Activo</th>
+      <th>Fecha de Creación</th>
+      <th>Última Actualización</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Aquí se incluirán los datos dinámicamente -->
+    {% for product in products %}
+    <tr>
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.stock }}</td>
+      <td>{{ product.category.name }}</td>
+      <td>
+        {% if product.image %}
+        <img src="{{ product.image.url }}" alt="Imagen de {{ product.name }}" />
+        {% else %} No disponible {% endif %}
+      </td>
+      <td>{{ product.is_active|yesno:"Sí,No" }}</td>
+      <td>{{ product.created_at }}</td>
+      <td>{{ product.updated_at }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}

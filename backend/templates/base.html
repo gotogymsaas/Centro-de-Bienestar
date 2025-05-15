@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}GoToGym{% endblock %}</title>
+  <link href="{% static 'css/tailwind.css' %}" rel="stylesheet">
+  <link href="{% static 'css/custom_styles.css' %}" rel="stylesheet">
+</head>
+<body class="bg-grafito text-plata">
+  <!-- Header con barra de navegación -->
+  <header class="bg-grafito shadow">
+    <nav class="container mx-auto flex items-center justify-between p-4">
+      <!-- Logo / Marca -->
+      <div class="text-dorado font-bold text-2xl">
+        GoToGym
+      </div>
+      <!-- Menú de navegación -->
+      <ul class="hidden md:flex space-x-6">
+        <li>
+          <a href="{% url 'home' %}" class="hover:text-dorado transition-colors">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'list_product' %}" class="hover:text-dorado transition-colors">
+            Productos
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'my_order' %}" class="hover:text-dorado transition-colors">
+            Pedidos
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'bienestar_dashboard' %}" class="hover:text-dorado transition-colors">
+            Bienestar
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'nps_chart' %}" class="hover:text-dorado transition-colors">
+            Métricas
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'gestion_index' %}" class="hover:text-dorado transition-colors">
+            Gestión
+          </a>
+        </li>
+      </ul>
+      <!-- Menú Mobile (hamburguesa) -->
+      <div class="-mr-2 flex items-center md:hidden">
+        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md hover:text-dorado hover:bg-plata focus:outline-none" onclick="toggleMobileMenu()">
+          <span class="sr-only">Abrir menú principal</span>
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <!-- Menú Mobile desplegable -->
+    <div class="md:hidden" id="mobile-menu" style="display: none;">
+      <ul class="pt-2 pb-3 space-y-1">
+        <li>
+          <a href="{% url 'home' %}" class="block pl-3 pr-4 py-2 hover:text-dorado transition-colors">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'list_product' %}" class="block pl-3 pr-4 py-2 hover:text-dorado transition-colors">
+            Productos
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'my_order' %}" class="block pl-3 pr-4 py-2 hover:text-dorado transition-colors">
+            Pedidos
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'bienestar_dashboard' %}" class="block pl-3 pr-4 py-2 hover:text-dorado transition-colors">
+            Bienestar
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'nps_chart' %}" class="block pl-3 pr-4 py-2 hover:text-dorado transition-colors">
+            Métricas
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'gestion_index' %}" class="block pl-3 pr-4 py-2 hover:text-dorado transition-colors">
+            Gestión
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main>
+    {% block content %}
+    <!-- El contenido de cada página se insertará aquí -->
+    {% endblock %}
+  </main>
+
+  <footer class="bg-grafito text-center p-4">
+    <p>GoToGym - La fusión perfecta entre lujo deportivo y bienestar personalizado</p>
+    <p>© 2025 GoToGym. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      var menu = document.getElementById('mobile-menu');
+      if (menu.style.display === 'none' || menu.style.display === '') {
+
