@@ -2,8 +2,9 @@ import os
 from pathlib import Path
 
 # BASE_DIR: ruta base del proyecto
-BASE_DIR = Path(__file__).resolve().parent.parent
-LOCALE_PATHS = [ BASE_DIR / 'locale' ]
+# BASE_DIR apunta al directorio 'backend'
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
 # SECRET_KEY: Se extrae de variables de entorno para mayor seguridad.
 SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-default-key")
 
@@ -11,22 +12,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-default-key")
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 # ALLOWED_HOSTS: Define los hosts permitidos. Se configuran a través de una variable de entorno.
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
-
-ALLOWED_HOSTS = [
-    'br.gotogym.store',
-    'co.gotogym.store',
-    'us.gotogym.store',    'www.gotogym.store',
-    'br.gotogym.store',
-    'co.gotogym.store',
-    'uk.gotogym.store',
-    'us.gotogym.store',    'gotogym.store',
-    'br.gotogym.store',
-    'co.gotogym.store',
-    'uk.gotogym.store',
-    'us.gotogym.store',
-    '127.0.0.1',
-]
+ALLOWED_HOSTS = os.environ.get(
+    "ALLOWED_HOSTS", "localhost,127.0.0.1"
+).split(",")
 
 # Aplicaciones instaladas
 
@@ -38,7 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',    "rosetta",    "modeltranslation",
+    'django.contrib.staticfiles',
+    'rosetta',
+    'modeltranslation',
 
     # Librerías de UI
     "crispy_forms",
@@ -69,21 +59,22 @@ INSTALLED_APPS = [
 
 # Middleware
 MIDDLEWARE = [
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',    'django_hosts.middleware.HostsRequestMiddleware',
-    'django_hosts.middleware.HostsResponseMiddleware',    "django.middleware.security.SecurityMiddleware",
-    'django.middleware.locale.LocaleMiddleware',    'django.middleware.locale.LocaleMiddleware',    'django.middleware.locale.LocaleMiddleware',    'django.middleware.locale.LocaleMiddleware',    'django.middleware.locale.LocaleMiddleware',    "django.middleware.common.CommonMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django_hosts.middleware.HostsRequestMiddleware",
+    "django_hosts.middleware.HostsResponseMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 ROOT_URLCONF = "project_gotogym.urls"
-ROOT_HOSTCONF = 'project_gotogym.hosts'
-DEFAULT_HOST   = 'www'
-PARENT_HOST    = 'gotogym.store'
-DEFAULT_HOST = 'www'
-PARENT_HOST = 'gotogym.store'
+ROOT_HOSTCONF = "project_gotogym.hosts"
+DEFAULT_HOST = "www"
+PARENT_HOST = "gotogym.store"
 # Configuración de plantillas
 
 TEMPLATES = [
@@ -119,12 +110,16 @@ DATABASES = {
 # Validadores de contraseñas
 AUTH_PASSWORD_VALIDATORS = [
     {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -174,21 +169,14 @@ LOGGING = {
 # - Se recomienda revisar y actualizar la base de datos para producción (por ejemplo, migrar a PostgreSQL) y configurar medidas adicionales de seguridad (HTTPS, cookies seguras, etc.).
 # - La configuración de Crispy Forms y la estructura de TEMPLATES está alineada con la esencia de marca de GoToGym,
 #   que combina lujo deportivo, alta tecnología y bienestar personalizado.
-USE_I18N = True
-LANGUAGE_CODE = 'es'
-LANGUAGES = [
-    ('es', 'Español'),
-    ('pt-br', 'Português (Brasil)'),
-    ('en', 'English (US)'),
-    ('en-gb', 'English (UK)'),
-]
-LOCALE_PATHS = [ BASE_DIR / 'locale' ]
-LANGUAGE_COOKIE_DOMAIN = '.gotogym.store'
 
+USE_I18N = True
 LANGUAGE_CODE = "es-co"
 LANGUAGES = [
     ("es", "Español"),
-    ("pt", "Português"),
-    ("en", "English"),
+    ("pt-br", "Português (Brasil)"),
+    ("en", "English (US)"),
+    ("en-gb", "English (UK)"),
 ]
-LOCALE_PATHS = [ BASE_DIR / "locale" ]
+LOCALE_PATHS = [BASE_DIR / "locale"]
+LANGUAGE_COOKIE_DOMAIN = ".gotogym.store"

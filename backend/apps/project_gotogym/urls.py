@@ -19,10 +19,11 @@ from django.views.generic import TemplateView    2. Add a URL to urlpatterns:  p
 URL configuration for project_gotogym project.
 """
 from django.contrib import admin
-from django.urls import path, include, include
+from django.urls import path, include
 from django.views.generic import TemplateView
 urlpatterns = [
-    path('rosetta/', include('rosetta.urls')),    path('rosetta/', include('rosetta.urls')),    path('rosetta/', include('rosetta.urls')),    # Admin
+    path('rosetta/', include('rosetta.urls')),
+    # Admin
     path('admin/', admin.site.urls),
 
     # Páginas estáticas
