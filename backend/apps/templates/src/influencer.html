@@ -1,0 +1,9 @@
+{% extends "src/base.html" %}
+{% block title %}Influencer Marketing - GoToGym{% endblock %}
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold text-dorado">Programa de Influencers</h1>
+  <p class="mt-4 text-esmeralda">Únete a nuestro programa de influencers y gana comisiones recomendando nuestros productos.</p>
+  <a href="{% url 'influencers:dashboard' %}" class="mt-6 inline-block bg-[#C5A46B] text-white px-6 py-3 rounded-full hover:shadow-xl transition duration-300">Acceder al panel</a>
+</div>
+{% endblock %}

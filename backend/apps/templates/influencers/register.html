@@ -1,0 +1,14 @@
+{% extends "src/base.html" %}
+{% load tailwind_filters %}
+{% block title %}Registro Influencer – GoToGym{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold text-dorado mb-4">Conviértete en Influencer</h1>
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="bg-[#C5A46B] text-white px-6 py-2 rounded">Registrarme</button>
+  </form>
+</div>
+{% endblock %}

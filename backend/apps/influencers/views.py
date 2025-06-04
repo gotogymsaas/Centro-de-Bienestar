@@ -1,6 +1,9 @@
-from django.views.generic import TemplateView
-from .models import ReferralClick, OrderReferral
+from django.views.generic import TemplateView, CreateView
+from django.urls import reverse_lazy
+from django.shortcuts import redirect
+from .models import ReferralClick, OrderReferral, Influencer
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import InfluencerRegistrationForm
 
 class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = "influencers/dashboard.html"
@@ -15,3 +18,19 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         else:
             ctx["clicks"] = ctx["orders"] = ctx["total_commission"] = 0
         return ctx
+
+
+class InfluencerRegisterView(LoginRequiredMixin, CreateView):
+    model = Influencer
+    form_class = InfluencerRegistrationForm
+    template_name = "influencers/register.html"
+    success_url = reverse_lazy("influencers:dashboard")
+
+    def dispatch(self, request, *args, **kwargs):
+        if hasattr(request.user, "influencer"):
+            return redirect("influencers:dashboard")
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
