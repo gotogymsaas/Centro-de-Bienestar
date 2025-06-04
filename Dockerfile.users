@@ -16,6 +16,7 @@ COPY . /app
 # Exponer el puerto 8000
 EXPOSE 8000
 
-# Ejecutar el servidor de Django en 0.0.0.0:8000 para que sea accesible desde fuera del contenedor
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Ejecutar el servidor de Django en 0.0.0.0:8000 utilizando el manage.py
+# ubicado en el directorio backend
+CMD ["python", "backend/manage.py", "runserver", "0.0.0.0:8000"]
 
