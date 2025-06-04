@@ -5,7 +5,7 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('grappelli/', include('grappelli.urls')),  # Ruta para Jazzmin (Admin personalizado)
+    path('grappelli/', include('grappelli.urls')),  # Ruta para Grappelli
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),  # Esto agrega las rutas de registro, login, etc.
     path('', TemplateView.as_view(template_name="src/home.html"), name="home"),
