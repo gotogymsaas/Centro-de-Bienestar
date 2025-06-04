@@ -29,8 +29,9 @@ class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
         return profile
     
 
-class UserProfileCreateView(LoginRequiredMixin,View):
+class UserProfileCreateView(LoginRequiredMixin, View):
     template_name = 'users/usersprofile_form.html'
+    success_url = reverse_lazy('perfil')
 
     def get(self, request, *args, **kwargs):
         user_form = CustomUserCreationForm()
@@ -58,7 +59,7 @@ class UserProfileCreateView(LoginRequiredMixin,View):
             profile.save()
 
             messages.success(request, "El usuario, perfil y grupo se configuraron correctamente.")
-            return redirect('success_url')  # Cambia 'success_url' por la URL de éxito.
+            return redirect(self.success_url)  # Cambia 'success_url' por la URL de éxito.
 
         messages.error(request, "Por favor corrige los errores.")
         return render(request, self.template_name, {
