@@ -8,12 +8,19 @@ __pycache__/
 *.py[cod]
 *.pyo
 
+# Archivos de configuracion
+.env
+
 # Base de datos y dumps
 db.sqlite3
 dump.rdb
 
-# Dependencias de Node (Next.js PWA)
+# Dependencias de Node
+node_modules/
 webapp/node_modules/
+
+# Binarios
+bfg.jar
 
 # Archivos de sistema
 .DS_Store
@@ -23,11 +30,5 @@ webapp/node_modules/
 
 # Staticfiles coleccionados
 backend/staticfiles/
-node_modules/
-node_modules/
-node_modules/
-webapp/node_modules/
-node_modules/
-webapp/node_modules/
-node_modules/
-webapp/node_modules/
+www/
+webapp/.next/

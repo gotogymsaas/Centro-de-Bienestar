@@ -5,7 +5,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Configuraciones básicas (ajusta según tus necesidades)
-SECRET_KEY = 'tu-secret-key-aqui'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
@@ -147,7 +147,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'gotogym_db',         # Nombre de la base de datos que creaste
         'USER': 'gotogym_user',       # Usuario configurado en PostgreSQL
-        'PASSWORD': '123Margarita6',  # Reemplaza 'tu_contraseña' con la contraseña real
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': 'localhost',          # O el host donde se encuentra PostgreSQL
         'PORT': '5432',               # Puerto por defecto de PostgreSQL
     }
