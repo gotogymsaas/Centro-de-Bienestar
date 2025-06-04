@@ -39,6 +39,8 @@ urlpatterns = [
     path('terminos-y-condiciones/', TemplateView.as_view(template_name="src/terms_conditions.html"), name="terms_conditions"),
     path('faq/', TemplateView.as_view(template_name="src/faq.html"), name="faq"),
     path('carreras/', TemplateView.as_view(template_name="src/careers.html"), name="careers"),
+    path('blog-info/', TemplateView.as_view(template_name="src/blog.html"), name="blog_landing"),
+    path('influencer-marketing/', TemplateView.as_view(template_name="src/influencer.html"), name="influencer_marketing"),
 
     # Autenticación
     path('accounts/', include('django.contrib.auth.urls')),   # login, logout, password_reset, etc.
