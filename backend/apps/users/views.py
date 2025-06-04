@@ -21,7 +21,7 @@ class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = UserProfile
     fields = ["nit", "phone", "logo", "contact_name", "position", "empresa"]
     template_name = "users/userprofile_form.html"
-    success_url = reverse_lazy("perfil")
+    success_url = reverse_lazy("actualizar")
 
     def get_object(self, queryset=None):
         user = self.request.user
@@ -57,8 +57,11 @@ class UserProfileCreateView(LoginRequiredMixin,View):
             profile.user = user
             profile.save()
 
-            messages.success(request, "El usuario, perfil y grupo se configuraron correctamente.")
-            return redirect('success_url')  # Cambia 'success_url' por la URL de éxito.
+            messages.success(
+                request,
+                "El usuario, perfil y grupo se configuraron correctamente."
+            )
+            return redirect("login")
 
         messages.error(request, "Por favor corrige los errores.")
         return render(request, self.template_name, {
