@@ -14,5 +14,5 @@ COPY . /app/
 EXPOSE 8000
 
 # Arrancar el servidor de Django desde la raíz del proyecto
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "backend/manage.py", "runserver", "0.0.0.0:8000"]
 

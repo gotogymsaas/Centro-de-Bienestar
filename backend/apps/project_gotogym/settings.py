@@ -128,6 +128,14 @@ LANGUAGE_CODE = "es-co"
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
+LANGUAGES = [
+    ("es", "Español"),
+    ("pt-br", "Português (Brasil)"),
+    ("en", "English (US)"),
+    ("en-gb", "English (UK)"),
+]
+LOCALE_PATHS = [BASE_DIR / "locale"]
+LANGUAGE_COOKIE_DOMAIN = ".gotogym.store"
 
 # Archivos estáticos
 STATIC_URL = "static/"
@@ -170,13 +178,4 @@ LOGGING = {
 # - La configuración de Crispy Forms y la estructura de TEMPLATES está alineada con la esencia de marca de GoToGym,
 #   que combina lujo deportivo, alta tecnología y bienestar personalizado.
 
-USE_I18N = True
-LANGUAGE_CODE = "es-co"
-LANGUAGES = [
-    ("es", "Español"),
-    ("pt-br", "Português (Brasil)"),
-    ("en", "English (US)"),
-    ("en-gb", "English (UK)"),
-]
-LOCALE_PATHS = [BASE_DIR / "locale"]
-LANGUAGE_COOKIE_DOMAIN = ".gotogym.store"
+

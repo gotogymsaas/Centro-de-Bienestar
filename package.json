@@ -6,7 +6,7 @@
     "doc": "docs"
   },
   "scripts": {
-  "build": "rm -rf www/* && cp -R \"APP GoToGym\"/* www/ && echo \"PWA empaquetada en www/\"",
+  "build": "rm -rf www/* && cp -R webapp/out/* www/ && echo \"PWA empaquetada en www/\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -32,12 +32,11 @@
     "swiper": "^11.2.6"
   },
   "devDependencies": {
-  "@capacitor/cli": "^7.2.0",
+    "@capacitor/cli": "^7.2.0",
     "@tailwindcss/forms": "^0.5.10",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.17",
-    "@capacitor/cli": "^7.2.0"
+    "tailwindcss": "^3.4.17"
   },
   "repository": {
     "type": "git",
