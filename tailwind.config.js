@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  purge: ['./src/**/*.{js,jsx}'],
   content: [
     "./templates/**/*.html",
     "./**/*.py",
@@ -16,10 +17,16 @@ module.exports = {
         zafiro: '#17375C',
         turquesa: '#0FBFB0',
         blancoPremium: '#F8F9FA',
+        solarYellow: '#F5DF4D',
+        skyBlue: '#2D68C4',
+        neonPink: '#FF2CD0',
+        darkBg: '#111111',
       },
       fontFamily: {
         sans: ['Outfit', 'sans-serif'],
         serif: ['"Playfair Display"', 'serif'],
+        header: ['Montserrat', 'sans-serif'],
+        body: ['Open Sans', 'sans-serif'],
       },
       boxShadow: {
         luxury: '0 8px 30px rgba(212, 180, 106, 0.2)',
